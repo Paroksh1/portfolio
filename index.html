@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
+ /* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-theme {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Header Styles */
+header {
+    background: linear-gradient(90deg, #4b6cb7, #182848);
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    animation: fadeInDown 1s;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1em;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1em;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffcc00;
+}
+
+#theme-toggle {
+    background: none;
+    border: 2px solid #fff;
+    color: #fff;
+    padding: 0.5em 1em;
+    cursor: pointer;
+    border-radius: 4px;
+    margin-top: 1em;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-theme #theme-toggle {
+    border: 2px solid #4b6cb7;
+    color: #4b6cb7;
+}
+
+/* Section Styles */
+section {
+    padding: 2em 1em;
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    margin-top: 2em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s;
+}
+
+.dark-theme section {
+    background: #333;
+}
+
+section h2 {
+    border-bottom: 2px solid #4b6cb7;
+    padding-bottom: 0.5em;
+    font-size: 2em;
+    transition: border-bottom-color 0.3s;
+}
+
+.dark-theme section h2 {
+    border-bottom-color: #e0e0e0;
+}
+
+/* About Section Styles */
+#about p {
+    font-size: 1.2em;
+}
+
+/* Skills Section Styles */
+#skills .skill {
+    margin-bottom: 1em;
+    animation: fadeInLeft 1s;
+}
+
+#skills .skill p {
+    margin: 0 0 0.5em;
+}
+
+#skills .progress-bar {
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#skills .progress {
+    background: #4b6cb7;
+    height: 1em;
+    transition: width 1s ease-in-out;
+}
+
+.dark-theme #skills .progress-bar {
+    background: #555;
+}
+
+.dark-theme #skills .progress {
+    background: #4b6cb7;
+}
+
+/* Project Section Styles */
+.project {
+    background: #f4f4f4;
+    padding: 1em;
+    margin-bottom: 1em;
+    border-left: 4px solid #4b6cb7;
+    border-radius: 4px;
+    transition: background 0.3s, border-color 0.3s;
+    animation: fadeInRight 1s;
+}
+
+.dark-theme .project {
+    background: #444;
+    border-color: #e0e0e0;
+}
+
+.project h3 {
+    margin-top: 0;
+}
+
+/* Contact Section Styles */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+#contact-form label {
+    margin: 0.5em 0 0.2em;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 0.5em;
+    margin-bottom: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+}
+
+#contact-form button {
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 4px;
+    background-color: #4b6cb7;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#contact-form button:hover {
+    background-color: #182848;
+}
+
+.dark-theme #contact-form input, .dark-theme #contact-form textarea {
+    background: #555;
+    color: #e0e0e0;
+    border-color: #666;
+}
+
+.dark-theme #contact-form button {
+    background-color: #4b6cb7;
+    color: #fff;
+}
+
+.dark-theme #contact-form button:hover {
+    background-color: #182848;
+}
+
+/* Social Media Section Styles */
+#social-media {
+    text-align: center;
+    margin-top: 2em;
+}
+
+#social-media h3 {
+    margin-bottom: 1em;
+}
+
+.social-link {
+    display: inline-block;
+    margin: 0 1em;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5em;
+    padding: 0.5em;
+    border-radius: 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.instagram {
+    background-color: #e1306c;
+}
+
+.twitter {
+    background-color: #1da1f2;
+}
+
+.linkedin {
+    background-color: #0077b5;
+}
+
+.social-link i {
+    margin-right: 0.5em;
+}
+
+.social-link:hover {
+    transform: scale(1.1);
+}
+
+.dark-theme .social-link {
+    color: #fff;
+}
+
+.dark-theme .instagram {
+    background-color: #833ab4;
+}
+
+.dark-theme .twitter {
+    background-color: #1b95e0;
+}
+
+.dark-theme .linkedin {
+    background-color: #005582;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 1em 0;
+    background-color: #4b6cb7;
+    color: #fff;
+    margin-top: 2em;
+}
+
+.dark-theme footer {
+    background-color: #182848;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+</style>
+<body>
+    <header>
+        <h1>Paroksh Vashistha</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <button id="theme-toggle">Toggle Dark Theme</button>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm Paroksh Vashistha, currently pursuing a B.Tech. I am passionate about technology and enjoy working on various projects to enhance my skills and knowledge.</p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skill">
+            <p>Web Development</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 80%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <p>HTML & CSS</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 90%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <p>C++</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 70%;"></div>
+            </div>
+        </div>
+        <div class="skill">
+            <p>JavaScript</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 75%;"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Password Manager</h3>
+            <p>A web-based application that helps users securely store and manage their passwords. The Password Manager uses strong encryption to ensure the safety of stored credentials. <a href="https://jolly-khapse-c8693f.netlify.app/" target="_blank">Check it out here.</a></p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+        <div id="social-media">
+            <h3>Connect with me:</h3>
+            <a href="https://www.instagram.com/paroksh.vashistha_09/" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="https://x.com/ParokshV77981" target="_blank" class="social-link twitter"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href=" https://www.linkedin.com/in/paroksh-vashistha-6a53691b2/" target="_blank" class="social-link linkedin"><i class="fab fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Paroksh Vashistha. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
+
+       
+
+        
